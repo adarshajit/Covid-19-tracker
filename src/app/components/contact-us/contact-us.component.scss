@@ -1,0 +1,25 @@
+.contact-container {
+    padding: 1rem 3rem;
+
+    .error {
+      margin-top: -20px;
+      background: yellow;
+      padding: 0.5em;
+      display: inline-block;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .results {
+      margin-top: 50px;
+    
+      strong {
+        display: block;
+      }
+    
+      span {
+        margin-bottom: 20px;
+        display: block;
+      }
+    }
+}
+

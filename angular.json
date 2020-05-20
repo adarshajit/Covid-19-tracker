@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "covid-tracker": {
+    "covid-tracker-sbu-training": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/covid-tracker",
+            "outputPath": "dist/covid-tracker-sbu-training",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -62,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "covid-tracker:build"
+            "browserTarget": "covid-tracker-sbu-training:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "covid-tracker:build:production"
+              "browserTarget": "covid-tracker-sbu-training:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "covid-tracker:build"
+            "browserTarget": "covid-tracker-sbu-training:build"
           }
         },
         "test": {
@@ -88,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -110,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "covid-tracker:serve"
+            "devServerTarget": "covid-tracker-sbu-training:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "covid-tracker:serve:production"
+              "devServerTarget": "covid-tracker-sbu-training:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "covid-tracker"
+    }
+  },
+  "defaultProject": "covid-tracker-sbu-training",
+  "cli": {
+    "analytics": "568cb76f-2092-48e3-a25a-fba2fef7238d"
+  }
 }

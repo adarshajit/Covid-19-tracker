@@ -1,0 +1,57 @@
+<div class="container dashboard-container">
+  <div class="source">Source: <span>{{source}}</span></div>
+  <div class="options">
+    <span>Display Delta</span>
+    <label class="switch" >
+      <input type="checkbox" checked (click)="toggleDelta()">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div class="table table-responsive tableFixHead">
+    <table class="table table-striped table-hover table-bordered header-fixed">
+      <caption>COVID-19 Updates - India</caption>
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">State</th>
+          <th scope="col">Confirmed</th>
+          <th scope="col">Active</th>
+          <th scope="col">Recovered</th>
+          <th scope="col">Deceased</th>
+          <th scope="col">Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let state of states | slice: 1; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ state.state }}
+            <fa-icon *ngIf="state.statenotes !== ''" [ngbTooltip]="state.statenotes" icon="info-circle" class="info-icon">
+            </fa-icon>
+          </td>
+          <td>
+            <span class="confirmed-delta inc" *ngIf="state.deltaconfirmed && delta">
+              <fa-icon icon="arrow-up"></fa-icon>
+              {{state.deltaconfirmed | number}}
+            </span>
+            {{ state.confirmed  | number}}
+          </td>
+          <td>{{ state.active  | number}}</td>
+          <td>
+            <span class="recovered-delta inc"  *ngIf="state.deltarecovered  && delta">
+              <fa-icon icon="arrow-up"></fa-icon>
+              {{state.deltarecovered | number}}
+            </span>
+            {{ state.recovered  | number}}</td>
+          <td>
+            <span class="death-delta inc"  *ngIf="state.deltadeaths  && delta">
+              <fa-icon icon="arrow-up"></fa-icon>
+              {{state.deltadeaths | number}}
+            </span>
+            {{ state.deaths | number }}</td>
+          <td>{{ state.lastupdatedtime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
